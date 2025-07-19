@@ -84,3 +84,26 @@ footer {
     display: block;
   }
 }
+
+.selection{
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown{
+    border: 3px solid red;
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 5px;
+    color: white;
+    border-radius: 10px;
+}
+.dropdown option{
+    border-radius: 30px;
+}
+
+.dropdown:focus ,.dropdown:hover{
+    
+    outline: 5px solid rgba(255, 0, 0, 0.366);
+}
+
