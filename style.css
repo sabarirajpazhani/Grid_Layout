@@ -1,9 +1,86 @@
-body{
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    grid-template-areas: none
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
     "navbar navbar"
-    "sidebar sidebar"
-    "sidebar footer"
-    ;
+    "sidebar mainbar"
+    "sidebar footer";
+}
+
+nav {
+  top: 0;
+  position: sticky;
+  grid-area: navbar;
+  background-color: blue;
+  color: white;
+  padding: 1rem;
+  display: flex;
+}
+aside {
+  height: calc(100vh - 50.4px);
+  top: 50.4px;
+  position: sticky;
+  align-self: start;
+  grid-area: sidebar;
+  background-color: rgb(83, 83, 83);
+  color: white;
+}
+main {
+  grid-area: mainbar;
+  background-color: blueviolet;
+}
+footer {
+  grid-area: footer;
+  background-color: green;
+  color: white;
+  padding: 1rem;
+}
+
+#toggle {
+  position: relative;
+  opacity: 1;
+  width: 20px;
+  cursor: pointer;
+  z-index: 1;
+  display: none;
+}
+
+.sideicon {
+  position: absolute;
+  color: black;
+  font-size: 20px;
+  font-weight: bolder;
+  display: none;
+  left: 20px;
+}
+
+@media (max-width: 800px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+
+  aside {
+    position: fixed;
+    width: 300px;
+    display: none;
+  }
+  nav {
+    gap: 20px;
+  }
+  .sideicon {
+    display: block;
+  }
+  #toggle {
+    display: block;
+  }
+  nav:has(#toggle:checked)~aside{
+    display: block;
+  }
 }
